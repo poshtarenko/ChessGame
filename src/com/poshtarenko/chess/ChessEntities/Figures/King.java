@@ -25,7 +25,7 @@ public class King extends Figure {
 
     @Override
     public boolean moveIsPossible(Coords coords, List<Figure> otherFigures) {
-        if (this.getCoords() == coords) return false;
+        if (this.getCoords().equals(coords)) return false;
 
         // Проверяет есть ли дружественная фигура на клетке
         for (Figure figure : otherFigures) {
@@ -109,7 +109,6 @@ public class King extends Figure {
 
         if (availableMovesOnCheck(otherFigures).size() > 0) return false;
 
-        System.out.println("checkmate");
         return true;
     }
 
@@ -117,7 +116,6 @@ public class King extends Figure {
         for (Figure figure : otherFigures)
             if (!(figure instanceof King))
                 if (figure.moveIsPossible(new Coords(this.getCoords().getX(), this.getCoords().getY()), otherFigures) && figure.getColor() != this.getColor()) {
-                    System.out.println("CHECK");
                     return true;
                 }
         return false;

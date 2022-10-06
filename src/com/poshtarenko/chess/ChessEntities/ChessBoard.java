@@ -3,6 +3,7 @@ package com.poshtarenko.chess.ChessEntities;
 import com.poshtarenko.chess.ChessEntities.Figures.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ChessBoard {
     private final ArrayList<Tile> tiles;
