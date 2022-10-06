@@ -1,0 +1,10 @@
+.tile:hover{
+    -fx-stroke: #1c331e;
+    -fx-stroke-width: 7;
+    -fx-stroke-type: INSIDE;
+}
+
+.figure:hover{
+    -fx-effect: dropshadow(gaussian, black, 22, 0.05, 0.0, 2);
+    -fx-cursor: hand;
+}
