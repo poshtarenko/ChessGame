@@ -29,8 +29,11 @@ public class ChessGame {
         Figure figureToMove = null;
 
         for (Figure figure : chessBoard.getFigures())
-            if (figure.getColor() == whoseTurn && figure.getCoords().equals(figureCoords))
+            if (figure.getCoords().equals(figureCoords))
                 figureToMove = figure;
+
+        if (figureToMove.getColor() != whoseTurn)
+            throw new IllegalArgumentException("Wrong figure color");
 
         if (figureToMove == null)
             throw new IllegalArgumentException("There are no any figure on provided coordinates");
@@ -45,10 +48,14 @@ public class ChessGame {
             if (king == null)
                 throw new IllegalArgumentException("There are can not exist a chess board without king");
 
-            if (chessBoard.isFigureCanMoveWhenCheck(king, figureToMove, movementCoords))
+            if (chessBoard.isFigureCanMoveWhenCheck(king, figureToMove, movementCoords)) {
                 if (chessBoard.moveFigure(figureCoords, movementCoords)) nextTurn();
+            }
         } else {
-            if (chessBoard.moveFigure(figureCoords, movementCoords)) nextTurn();
+            if (chessBoard.moveFigure(figureCoords, movementCoords))
+                nextTurn();
+            else
+                throw new IllegalArgumentException("Move is impossible");
         }
 
         checkWinner();
