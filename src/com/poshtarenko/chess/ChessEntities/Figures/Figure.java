@@ -10,6 +10,8 @@ public abstract class Figure {
     private Coords coords;
 
     public Figure(byte color, Coords coords) {
+        if (color != 0 && color != 1)
+            throw new IllegalArgumentException("Wrong color");
         this.color = color;
         this.coords = coords;
     }

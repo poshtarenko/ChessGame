@@ -7,6 +7,10 @@ public class Coords {
     private final int y;
 
     public Coords(int x, int y) {
+        if (x > 7 || x < 0)
+            throw new IllegalArgumentException("Wrong X-coordinate");
+        if (y > 7 || y < 0)
+            throw new IllegalArgumentException("Wrong Y-coordinate");
         this.x = x;
         this.y = y;
     }
